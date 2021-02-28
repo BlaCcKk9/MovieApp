@@ -3,7 +3,7 @@ package com.example.movieapp.presentation.base
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-class BasePresenter<T: BaseView> {
+open class BasePresenter<T: BaseView> {
     var view: T? = null
 
     protected var isFirstAttach: Boolean = true
