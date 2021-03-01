@@ -9,7 +9,7 @@ import com.example.movieapp.data.models.MovieModel
 import kotlinx.android.synthetic.main.item_popular_movie.view.*
 
 class PopularMoviesAdapter(
-    private val onItemClicked: (MovieModel) -> Unit
+    private val onItemClicked: (MovieModel) -> Unit,
 ): RecyclerView.Adapter<PopularMoviesAdapter.PopularMoviesViewHolder>() {
 
     private val popularMovies = mutableListOf<MovieModel>()

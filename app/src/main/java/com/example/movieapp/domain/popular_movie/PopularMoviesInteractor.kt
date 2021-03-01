@@ -11,7 +11,7 @@ import javax.inject.Inject
 class PopularMoviesInteractor @Inject constructor(
     private val popularMoviesRepository: PopularMoviesRepository
 ){
-    fun execute(): Flowable<PopularMoviesResModel> = popularMoviesRepository.getPopularMovies(API_KEY)
+    fun execute(page: Int): Flowable<PopularMoviesResModel> = popularMoviesRepository.getPopularMovies(API_KEY, page)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
 }

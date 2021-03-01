@@ -1,7 +1,9 @@
 package com.example.movieapp.presentation.main
 
 import android.util.Log
+import com.example.movieapp.app.API_KEY
 import com.example.movieapp.app.scopes.PerActivity
+import com.example.movieapp.data.models.MovieModel
 import com.example.movieapp.domain.popular_movie.PopularMoviesInteractor
 import com.example.movieapp.presentation.base.BasePresenter
 import javax.inject.Inject
@@ -11,15 +13,17 @@ class MainPresenter @Inject constructor(
     private val popularMoviesInteractor: PopularMoviesInteractor
 ) : BasePresenter<MainView>(){
 
+    private var popularMovies = ArrayList<MovieModel>()
+
     override fun onFirstAttach() {
         super.onFirstAttach()
-        Log.e("Iamhere->>>>", "ahahhahah")
-//        addDisposable(popularMoviesInteractor.execute().subscribe {
-//            view?.populatePopularMovies(it.results)
-//        })
+        getPopularMovies(1)
+    }
 
-        addDisposable(popularMoviesInteractor.execute().subscribe({
-            view?.populatePopularMovies(it.results)
+    fun getPopularMovies(page: Int){
+        addDisposable(popularMoviesInteractor.execute(page).subscribe({
+            popularMovies.addAll(it.results)
+            view?.populatePopularMovies(popularMovies)
         }, {
             Log.e("errorr", it.message.toString())
         }))

@@ -9,8 +9,5 @@ import retrofit2.http.Query
 
 interface RemoteDataProvider {
     @GET("$VERSION/tv/popular")
-    fun getPopularMovies(@Query("api_key") api_key: String) : Flowable<PopularMoviesResModel>
-
-    @GET("$VERSION/tv/popular")
-    fun getPopularMoviesForPaging(@Query("api_key") api_key: String, @Query("page") page: Long): Flowable<PopularMoviesResModel>
+    fun getPopularMovies(@Query("api_key") api_key: String, @Query("page") page: Int) : Flowable<PopularMoviesResModel>
 }
