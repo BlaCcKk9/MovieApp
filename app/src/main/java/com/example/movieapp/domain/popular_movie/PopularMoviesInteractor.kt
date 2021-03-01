@@ -1,5 +1,6 @@
 package com.example.movieapp.domain.popular_movie
 
+import com.example.movieapp.app.API_KEY
 import com.example.movieapp.data.models.PopularMoviesResModel
 import com.example.movieapp.domain.repositories.PopularMoviesRepository
 import io.reactivex.Flowable
@@ -10,7 +11,7 @@ import javax.inject.Inject
 class PopularMoviesInteractor @Inject constructor(
     private val popularMoviesRepository: PopularMoviesRepository
 ){
-    fun execute(): Flowable<PopularMoviesResModel> = popularMoviesRepository.getPopularMovies()
+    fun execute(): Flowable<PopularMoviesResModel> = popularMoviesRepository.getPopularMovies(API_KEY)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
 }
