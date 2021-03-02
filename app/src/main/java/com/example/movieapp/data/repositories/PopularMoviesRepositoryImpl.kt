@@ -10,6 +10,7 @@ import javax.inject.Inject
 class PopularMoviesRepositoryImpl @Inject constructor(
     private val remoteDataProvider: RemoteDataProvider
 ): PopularMoviesRepository {
+
     override fun getPopularMovies(api_key: String, page: Int): Flowable<PopularMoviesResModel> = remoteDataProvider.getPopularMovies(api_key, page)
 
 }

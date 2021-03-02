@@ -1,6 +1,7 @@
 package com.example.movieapp.data.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class MovieModel (
     @SerializedName("id")
@@ -19,4 +20,4 @@ data class MovieModel (
     var language: String,
     @SerializedName("first_air_date")
     var date: String
-)
+) : Serializable

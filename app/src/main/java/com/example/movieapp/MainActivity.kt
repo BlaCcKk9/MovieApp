@@ -13,6 +13,7 @@ import com.example.movieapp.presentation.base.BaseActivity
 import com.example.movieapp.presentation.main.MainPresenter
 import com.example.movieapp.presentation.main.MainView
 import com.example.movieapp.presentation.main.PopularMoviesAdapter
+import com.example.movieapp.presentation.movie_detail.MovieDetailActivity
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     private var page = 1
 
     private val popularMoviesAdapter = PopularMoviesAdapter {
-        Log.e("Name->>>>>>>>>>hah", it.name)
+        MovieDetailActivity.start(this@MainActivity, it)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
