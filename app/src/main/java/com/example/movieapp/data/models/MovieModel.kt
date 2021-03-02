@@ -12,5 +12,11 @@ data class MovieModel (
     @SerializedName("vote_average")
     var voteAverage: Double,
     @SerializedName("name")
-    var name: String
+    var name: String,
+    @SerializedName("origin_country")
+    var country: List<String>,
+    @SerializedName("original_language")
+    var language: String,
+    @SerializedName("first_air_date")
+    var date: String
 )

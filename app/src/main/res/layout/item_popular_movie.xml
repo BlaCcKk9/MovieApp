@@ -1,19 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_marginTop="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:text="Harry Potter"
-        android:textSize="18dp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+    <com.github.siyamed.shapeimageview.RoundedImageView
+        android:id="@+id/ivImage"
+        android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:siRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>
+
+    <LinearLayout
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <TextView
+            android:id="@+id/tvName"
+            android:text="--"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="@+id/ivImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:maxLines="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RatingBar
+            android:layout_marginStart="20dp"
+            android:id="@+id/ratingBar"
+            android:layout_weight="0.5"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:progressBackgroundTint="#919191"
+            android:progressTint="#02d1d1"
+            android:rating="3"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:text="date"
+            android:layout_weight="1"
+            android:textColor="#919191"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvLanguage"
+            android:text="English"
+            android:textColor="#919191"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

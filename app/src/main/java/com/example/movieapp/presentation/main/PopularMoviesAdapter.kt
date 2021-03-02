@@ -1,10 +1,14 @@
 package com.example.movieapp.presentation.main
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.movieapp.R
+import com.example.movieapp.app.IMAGE_URL
 import com.example.movieapp.data.models.MovieModel
 import kotlinx.android.synthetic.main.item_popular_movie.view.*
 
@@ -18,8 +22,16 @@ class PopularMoviesAdapter(
         PopularMoviesViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_popular_movie, parent, false))
 
     override fun onBindViewHolder(holder: PopularMoviesAdapter.PopularMoviesViewHolder, position: Int) {
+
+        var movie = popularMovies[position]
+
         holder.itemView.apply {
-            tvName.text = popularMovies[position].name
+            tvName.text = movie.name
+            tvDate.text = movie.date
+            tvLanguage.text = movie.language
+            Log.e("vote_Average->>>", movie.image.toString())
+            Glide.with(context).asBitmap().load(IMAGE_URL + movie.image).into(ivImage)
+
         }
     }
 

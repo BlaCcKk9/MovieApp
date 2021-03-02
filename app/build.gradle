@@ -80,4 +80,6 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.5'
 
     kapt 'com.android.databinding:compiler:3.1.4'
+
+    implementation 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 }

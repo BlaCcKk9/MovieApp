@@ -38,13 +38,10 @@ class MainActivity : BaseActivity<MainPresenter>(), MainView {
     private fun initViews(){
         rvPopularMovies.layoutManager = LinearLayoutManager(this)
         rvPopularMovies.adapter = popularMoviesAdapter
-        nestedScrollView.setOnScrollChangeListener(object : NestedScrollView.OnScrollChangeListener{
-            override fun onScrollChange(v: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int
-            ) {
-                if (scrollY == v!!.getChildAt(0).measuredHeight - v!!.measuredHeight) {
-                    page++
-                    presenter.getPopularMovies(page)
-                }
+        nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if (scrollY == v!!.getChildAt(0).measuredHeight - v!!.measuredHeight) {
+                page++
+                presenter.getPopularMovies(page)
             }
         })
 
