@@ -10,6 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.movieapp.R
 import com.example.movieapp.app.IMAGE_URL
 import com.example.movieapp.data.models.MovieModel
+import com.example.movieapp.presentation.helper.getRating
 import kotlinx.android.synthetic.main.item_popular_movie.view.*
 
 class PopularMoviesAdapter(
@@ -29,7 +30,7 @@ class PopularMoviesAdapter(
             tvName.text = movie.name
             tvDate.text = movie.date
             tvLanguage.text = movie.language
-            Log.e("vote_Average->>>", movie.image.toString())
+            ratingBar.rating = getRating(movie.voteAverage.toFloat())
             Glide.with(context).asBitmap().load(IMAGE_URL + movie.image).into(ivImage)
 
         }

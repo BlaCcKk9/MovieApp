@@ -21,7 +21,7 @@ class MainPresenter @Inject constructor(
     }
 
     fun getPopularMovies(page: Int){
-        addDisposable(popularMoviesInteractor.execute(page).subscribe({
+        addDisposable(popularMoviesInteractor.execute(page).doOnSubscribe { view?.setProgressVisibility(true) }.doAfterTerminate { view?.setProgressVisibility(false)}.subscribe({
             popularMovies.addAll(it.results)
             view?.populatePopularMovies(popularMovies)
         }, {

@@ -2,7 +2,7 @@ package com.example.movieapp.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class PopularMoviesResModel(
+data class MovieResModel(
     @SerializedName("page")
     var page: Int,
     @SerializedName("results")

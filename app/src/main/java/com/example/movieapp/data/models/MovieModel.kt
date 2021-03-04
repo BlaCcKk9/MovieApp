@@ -8,10 +8,14 @@ data class MovieModel (
     var id: Int,
     @SerializedName("poster_path")
     var image: String?,
+    @SerializedName("backdrop_path")
+    var background: String?,
     @SerializedName("popularity")
     var popularity: Double,
     @SerializedName("vote_average")
     var voteAverage: Double,
+    @SerializedName("overview")
+    var description: String,
     @SerializedName("name")
     var name: String,
     @SerializedName("origin_country")

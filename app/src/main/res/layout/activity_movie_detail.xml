@@ -1,9 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1f2938"
     tools:context=".presentation.movie_detail.MovieDetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivMovieImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMovieDetail"
+            app:layout_constraintTop_toBottomOf="@+id/ivMovieImage"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/tvName"
+                android:text="Harry Potter"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                android:maxLines="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RatingBar
+                android:layout_marginTop="20dp"
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:progressBackgroundTint="#919191"
+                android:progressTint="#02d1d1"
+                android:rating="3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/tvDate"
+                android:text="date"
+                android:textColor="#919191"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvLanguage"
+                android:text="English"
+                android:textColor="#919191"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/tvLanguage"
+                android:text="sdjfh sdf sdjf hsdf sdfjshd fsiodf jsdofisdfsodfh sdfuoih sdfuoh sdufhdfuiheuf erh ferfuehr feuhr fu rhefuherfuh euf hqerufhqrufuerfheurf rhue fuerh ferf erifqeurhf qeurhfeyur fgewrf gweyrf werfewyrfge rfyeg fye gfyegfyefgeyfgefygeryfsdjfh sdf sdjf hsdf sdfjshd fsiodf jsdofisdfsodfh sdfuoih sdfuoh sdufhdfuiheuf erh ferfuehr feuhr fu rhefuherfuh euf hqerufhqrufuerfheurf rhue fuerh ferf erifqeurhf qeurhfeyur fgewrf gweyrf werfewyrfge rfyeg fye gfyegfyefgeyfgefygeryfsdjfh sdf sdjf hsdf sdfjshd fsiodf jsdofisdfsodfh sdfuoih sdfuoh sdufhdfuiheuf erh ferfuehr feuhr fu rhefuherfuh euf hqerufhqrufuerfheurf rhue fuerh ferf erifqeurhf qeurhfeyur fgewrf gweyrf werfewyrfge rfyeg fye gfyegfyefgeyfgefygeryfsdjfh sdf sdjf hsdf sdfjshd fsiodf jsdofisdfsodfh sdfuoih sdfuoh sdufhdfuiheuf erh ferfuehr feuhr fu rhefuherfuh euf hqerufhqrufuerfheurf rhue fuerh ferf erifqeurhf qeurhfeyur fgewrf gweyrf werfewyrfge rfyeg fye gfyegfyefgeyfgefygeryfsdjfh sdf sdjf hsdf sdfjshd fsiodf jsdofisdfsodfh sdfuoih sdfuoh sdufhdfuiheuf erh ferfuehr feuhr fu rhefuherfuh euf hqerufhqrufuerfheurf rhue fuerh ferf erifqeurhf qeurhfeyur fgewrf gweyrf werfewyrfge rfyeg fye gfyegfyefgeyfgefygeryf"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/layoutMovieDetail"
+            android:id="@+id/labelSimilarMovies"
+            android:text="Similar Movies"
+            android:textSize="20dp"
+            android:textColor="#02d1d1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:paddingBottom="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/rvSimilarMovies"
+            app:layout_constraintTop_toBottomOf="@+id/labelSimilarMovies"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_similar_movie"
+            tools:itemCount="10"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
